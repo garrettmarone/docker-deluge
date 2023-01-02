@@ -1,0 +1,58 @@
+version: "3.7"
+services:
+  deluge:
+    image: lscr.io/linuxserver/deluge:latest
+    container_name: deluge
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+      - DELUGE_LOGLEVEL=error #optional
+    volumes:
+      - /opt/deluge/config:/config
+      - /data/tmp:/downloads
+    restart: unless-stopped
+    network_mode: "service:wireguard"
+  wireguard:
+    image: linuxserver/wireguard
+    container_name: wireguard
+    restart: unless-stopped
+    networks:
+      - backbone
+    volumes:
+      - '/opt/wireguard/client/config:/config:z'
+      - '/lib/modules:/lib/modules:ro'
+    environment:
+      - PUID=1000
+      - PGID=1000
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv6.conf.all.disable_ipv6=0
+    ports:
+      - "8112:8112"
+
+  nginx:
+    image: lscr.io/linuxserver/nginx:latest
+    container_name: nginx
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+    volumes:
+      - /opt/nginx/proxy/config:/config
+    restart: unless-stopped
+
+networks:
+  backbone:
+    name: backbone
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: 2001:db8:a::/64
+          gateway: 2001:db8:a::1
+

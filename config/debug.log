@@ -1,0 +1,84 @@
+22:44:31 [INFO    ][deluge.ui.ui:68  ] Deluge ui 2.1.1
+22:44:31 [DEBUG   ][deluge.ui.ui:69  ] options: Namespace(config=None, logfile='/config/debug.log', loglevel='debug', logrotate=None, quiet=False, profile=False, interface=None, port=None, base=None, ssl=False, no_ssl=False, pidfile=None, donotdaemonize=False, user=None, group=None, remaining=[])
+22:44:31 [INFO    ][deluge.ui.ui:70  ] Starting web ui..
+22:44:32 [DEBUG   ][deluge.configmanager       :91  ] Getting config: web.conf
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "enabled_plugins" to: [] (of type: <class 'list'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "default_daemon" to:  (of type: <class 'str'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "pwd_salt" to: c26ab3bbd8b137f99cd83c2c1c0963bcc1a35cad (of type: <class 'str'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "pwd_sha1" to: 2ce1a410bcdcc53064129b6d950f2e9fee4edc1e (of type: <class 'str'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "session_timeout" to: 3600 (of type: <class 'int'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "sessions" to: {} (of type: <class 'dict'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "sidebar_show_zero" to: False (of type: <class 'bool'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "sidebar_multiple_filters" to: True (of type: <class 'bool'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "show_session_speed" to: False (of type: <class 'bool'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "show_sidebar" to: True (of type: <class 'bool'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "theme" to: gray (of type: <class 'str'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "first_login" to: True (of type: <class 'bool'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "language" to:  (of type: <class 'str'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "base" to: / (of type: <class 'str'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "interface" to: 0.0.0.0 (of type: <class 'str'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "port" to: 8112 (of type: <class 'int'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "https" to: False (of type: <class 'bool'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "pkey" to: ssl/daemon.pkey (of type: <class 'str'>)
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "cert" to: ssl/daemon.cert (of type: <class 'str'>)
+22:44:32 [WARNING ][deluge.config              :400 ] Unable to open config file /root/.config/deluge/web.conf: [Errno 2] No such file or directory: '/root/.config/deluge/web.conf'
+22:44:32 [DEBUG   ][deluge.config              :535 ] File version 2 is not in input_range (0, 1), ignoring converter function..
+22:44:32 [DEBUG   ][deluge.config              :346 ] Registering function for language key..
+22:44:32 [DEBUG   ][deluge.ui.web.server       :701 ] Setting UI language 
+22:44:32 [DEBUG   ][deluge.ui.web.server       :228 ] Adding directory `/usr/lib/python3.10/site-packages/deluge/ui/web/css` with path ``
+22:44:32 [DEBUG   ][deluge.ui.web.server       :228 ] Adding directory `/usr/lib/python3.10/site-packages/deluge/ui/web/icons` with path ``
+22:44:32 [DEBUG   ][deluge.ui.web.server       :228 ] Adding directory `/usr/lib/python3.10/site-packages/deluge/ui/web/images` with path ``
+22:44:32 [DEBUG   ][deluge.ui.web.server       :228 ] Adding directory `/usr/lib/python3.10/site-packages/deluge/ui/data/pixmaps` with path ``
+22:44:32 [INFO    ][deluge.i18n.util           :101 ] Setting up translations from /usr/lib/python3.10/site-packages/deluge/i18n
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.add_host
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.add_torrents
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.connect
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.connected
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.deregister_event_listener
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.disconnect
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.download_torrent_from_url
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.edit_host
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.get_config
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.get_events
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.get_host_status
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.get_hosts
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.get_magnet_info
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.get_plugin_info
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.get_plugin_resources
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.get_plugins
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.get_torrent_files
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.get_torrent_info
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.get_torrent_status
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.register_event_listener
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.remove_host
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.set_config
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.start_daemon
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.stop_daemon
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.update_ui
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: web.upload_plugin
+22:44:32 [DEBUG   ][deluge.config              :203 ] Setting key "hosts" to: [['a1211216243b40a7ae7425f9c5933fed', '127.0.0.1', 58846, 'localclient', '**********']] (of type: <class 'list'>)
+22:44:32 [DEBUG   ][deluge.config              :441 ] Config /root/.config/deluge/hostlist.conf version: 1.3 loaded: {'hosts': [['51f9520cec7046168a5cbb11ba5e52fc', '127.0.0.1', 58846, 'localclient', '**********']]}
+22:44:32 [DEBUG   ][deluge.config              :535 ] File version 3 is not in input_range (1, 2), ignoring converter function..
+22:44:32 [DEBUG   ][deluge.ui.coreconfig       :19  ] CoreConfig init..
+22:44:32 [DEBUG   ][deluge.ui.sessionproxy     :30  ] SessionProxy init..
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: webutils.get_languages
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: auth.change_password
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: auth.check_session
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: auth.delete_session
+22:44:32 [DEBUG   ][deluge.ui.web.json_api     :270 ] Registering method: auth.login
+22:44:32 [DEBUG   ][deluge.configmanager       :91  ] Getting config: web.conf
+22:44:32 [DEBUG   ][deluge.pluginmanagerbase   :52  ] Plugin manager init..
+22:44:32 [DEBUG   ][deluge.configmanager       :91  ] Getting config: web.conf
+22:44:32 [DEBUG   ][deluge.pluginmanagerbase   :112 ] Found plugin: AutoAdd 1.8 at /usr/lib/python3.10/site-packages/deluge/plugins/AutoAdd-1.8-py3.10.egg
+22:44:32 [DEBUG   ][deluge.pluginmanagerbase   :112 ] Found plugin: Blocklist 1.4 at /usr/lib/python3.10/site-packages/deluge/plugins/Blocklist-1.4-py3.10.egg
+22:44:32 [DEBUG   ][deluge.pluginmanagerbase   :112 ] Found plugin: Execute 1.3 at /usr/lib/python3.10/site-packages/deluge/plugins/Execute-1.3-py3.10.egg
+22:44:32 [DEBUG   ][deluge.pluginmanagerbase   :112 ] Found plugin: Extractor 0.7 at /usr/lib/python3.10/site-packages/deluge/plugins/Extractor-0.7-py3.10.egg
+22:44:32 [DEBUG   ][deluge.pluginmanagerbase   :112 ] Found plugin: Stats 0.4 at /usr/lib/python3.10/site-packages/deluge/plugins/Stats-0.4-py3.10.egg
+22:44:32 [DEBUG   ][deluge.pluginmanagerbase   :112 ] Found plugin: Notifications 0.4 at /usr/lib/python3.10/site-packages/deluge/plugins/Notifications-0.4-py3.10.egg
+22:44:32 [DEBUG   ][deluge.pluginmanagerbase   :112 ] Found plugin: Toggle 0.4 at /usr/lib/python3.10/site-packages/deluge/plugins/Toggle-0.4-py3.10.egg
+22:44:32 [DEBUG   ][deluge.pluginmanagerbase   :112 ] Found plugin: Label 0.3 at /usr/lib/python3.10/site-packages/deluge/plugins/Label-0.3-py3.10.egg
+22:44:32 [DEBUG   ][deluge.pluginmanagerbase   :112 ] Found plugin: Scheduler 0.3 at /usr/lib/python3.10/site-packages/deluge/plugins/Scheduler-0.3-py3.10.egg
+22:44:32 [DEBUG   ][deluge.pluginmanagerbase   :112 ] Found plugin: WebUi 0.2 at /usr/lib/python3.10/site-packages/deluge/plugins/WebUi-0.2-py3.10.egg
+22:44:32 [INFO    ][deluge.ui.web.server       :731 ] Starting webui server at PID 337
+22:44:32 [ERROR   ][deluge.ui.web.web          :78  ] Couldn't listen on 0.0.0.0:8112: [Errno 98] Address in use. 
+Check that deluge-web or webui plugin is not already running.
