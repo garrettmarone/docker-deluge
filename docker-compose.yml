@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   deluge:
+    privileged: true
     image: lscr.io/linuxserver/deluge:latest
     container_name: deluge
     environment:
@@ -9,16 +10,39 @@ services:
       - TZ=America/Los_Angeles
       - DELUGE_LOGLEVEL=error #optional
     volumes:
-      - /opt/deluge/config:/config
-      - /data/tmp:/downloads
+      - '/opt/deluge/config:/config'
+      - '/data/tmp:/downloads:z'
+      - '/downloads_tmp:/downloads_tmp:z'
     restart: unless-stopped
-    network_mode: "service:wireguard"
+      #network_mode: "service:wireguard"
+    networks:
+      - vpn
+    ports:
+      - "8112:8112"
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv6.conf.all.disable_ipv6=1
+      - net.ipv6.conf.default.disable_ipv6=1
+      - net.ipv6.conf.lo.disable_ipv6=1
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        /sbin/ip route del default
+        /sbin/ip route add default dev eth0 via 172.20.0.50
+        /init
+
   wireguard:
+    privileged: true
     image: linuxserver/wireguard
     container_name: wireguard
     restart: unless-stopped
     networks:
-      - backbone
+      vpn:
+        ipv4_address: 172.20.0.50
     volumes:
       - '/opt/wireguard/client/config:/config:z'
       - '/lib/modules:/lib/modules:ro'
@@ -29,10 +53,11 @@ services:
       - NET_ADMIN
       - SYS_MODULE
     sysctls:
+      - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
-      - net.ipv6.conf.all.disable_ipv6=0
-    ports:
-      - "8112:8112"
+      - net.ipv6.conf.all.disable_ipv6=1
+      - net.ipv6.conf.default.disable_ipv6=1
+      - net.ipv6.conf.lo.disable_ipv6=1
 
   nginx:
     image: lscr.io/linuxserver/nginx:latest
@@ -47,12 +72,13 @@ services:
     restart: unless-stopped
 
 networks:
-  backbone:
-    name: backbone
+  vpn:
+    name: vpn
     driver: bridge
     enable_ipv6: true
     ipam:
       config:
         - subnet: 2001:db8:a::/64
           gateway: 2001:db8:a::1
-
+        - subnet: 172.20.0.0/24
+          gateway: 172.20.0.1
